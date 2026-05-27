@@ -1,0 +1,53 @@
+{
+	"name": "n8n-nodes-keplars",
+	"version": "2.4.4",
+	"description": "n8n community node for Keplars transactional email API",
+	"license": "MIT",
+	"homepage": "https://keplars.com",
+	"keywords": [
+		"n8n-community-node-package",
+		"keplars",
+		"email",
+		"transactional"
+	],
+	"author": {
+		"name": "Keplars",
+		"email": "support@keplars.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/KeplarsHQ/n8n-nodes-keplars.git"
+	},
+	"scripts": {
+		"build": "n8n-node build",
+		"build:watch": "tsc --watch",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"release": "n8n-node release",
+		"prepublishOnly": "npm run build"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"credentials": [
+			"dist/credentials/KeplarsApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/Keplars/Keplars.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/node-cli": "*",
+		"@types/node": "^22.0.0",
+		"eslint": "9.39.4",
+		"n8n-workflow": "*",
+		"prettier": "3.8.3",
+		"typescript": "^5.0.0"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
+}
