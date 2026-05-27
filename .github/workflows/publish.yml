@@ -1,12 +1,8 @@
 name: Publish to npm
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'package.json'
-      - 'nodes/**'
-      - 'credentials/**'
+  repository_dispatch:
+    types: [publish]
 
 jobs:
   publish:
