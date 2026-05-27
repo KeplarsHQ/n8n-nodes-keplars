@@ -4,7 +4,7 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 } from 'n8n-workflow';
-import { type IDataObject, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+import { type IDataObject, type JsonObject, NodeApiError, NodeConnectionTypes } from 'n8n-workflow';
 
 export class Keplars implements INodeType {
 	description: INodeTypeDescription = {
@@ -193,7 +193,7 @@ export class Keplars implements INodeType {
 					returnData.push({ json: { error: (error as Error).message }, pairedItem: { item: i } });
 					continue;
 				}
-				throw new NodeOperationError(this.getNode(), error as Error, { itemIndex: i });
+				throw new NodeApiError(this.getNode(), error as JsonObject, { itemIndex: i });
 			}
 		}
 
