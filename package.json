@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-keplars",
-	"version": "2.4.4",
+	"version": "2.4.5",
 	"description": "n8n community node for Keplars transactional email API",
 	"license": "MIT",
 	"homepage": "https://keplars.com",
