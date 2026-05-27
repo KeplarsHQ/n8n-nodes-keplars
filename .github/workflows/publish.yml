@@ -17,7 +17,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: npm install --omit=peer --legacy-peer-deps
@@ -26,4 +25,6 @@ jobs:
         run: npm run build
 
       - name: Publish to npm
-        run: npm publish --access public --provenance
+        run: |
+          npm config set registry https://registry.npmjs.org
+          npm publish --access public --provenance
