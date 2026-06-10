@@ -85,9 +85,8 @@ export class Keplars implements INodeType {
 				displayName: 'Subject',
 				name: 'subject',
 				type: 'string',
-				required: true,
 				default: '',
-				description: 'Email subject line',
+				description: 'Email subject line. Optional when using a Template ID.',
 			},
 			{
 				displayName: 'Body',
@@ -164,7 +163,8 @@ export class Keplars implements INodeType {
 					}
 				}
 
-				const body: Record<string, unknown> = { to: [to], from, subject };
+				const body: Record<string, unknown> = { to: [to], from };
+				if (subject) body.subject = subject;
 				if (from_name) body.from_name = from_name;
 				if (body_content) body.body = body_content;
 				if (template_id) body.template_id = template_id;
